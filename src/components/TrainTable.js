@@ -9,9 +9,8 @@ const TrainTable = ({link,showTotal = false, rows = 10}) => {
       async function fetchData() {
         const res = await fetch(link);
         const json = await res.json();
-        let itm = json[0];
-        setTrain(itm.train);
-        setTotalCount(itm.totalCount);
+        setTrain(json.train);
+        setTotalCount(json.totalCount);
       }
       fetchData();
     }, []);
