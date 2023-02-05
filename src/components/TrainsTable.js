@@ -15,7 +15,7 @@ const TrainsTable = () => {
       console.log(`totalCount: ${json.totalCount}\vtrains: ${json.trains}`)
       setData(json.trains);
       setTotalCount(json.totalCount);
-      setLoading(json.trains > 1 ? false:true);
+      setLoading(json.trains.length > 1 ? false:true);
     };
     fetchData();
   }, []);
