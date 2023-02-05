@@ -12,7 +12,6 @@ const TrainTable = ({link,showTotal = false, rows = 10}) => {
         let itm = json[0];
         setTrain(itm.train);
         setTotalCount(itm.totalCount);
-        console.log(`data: ${JSON.stringify(itm, null, 4)}`)
       }
       fetchData();
     }, []);

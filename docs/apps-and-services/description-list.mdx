@@ -4,33 +4,30 @@ id: chart-list
 title: Chart List
 ---
 
-import StableTable from '@site/src/components/TrainTable';
-import EnterpriseTable from '@site/src/components/TrainTable';
-import IncubatorTable from '@site/src/components/TrainTable';
-import DependencyTable from '@site/src/components/TrainTable';
+import TrainTable from '@site/src/components/TrainTable';
 
 > List of all our apps with a short description
 
 ## Stable
 
-<StableTable link="/charts/charts-stable.json" rows="300"/>
+<TrainTable link="/charts/charts-stable.json" rows="300"/>
 
 ---
 
 ## Enterprise
 
-<EnterpriseTable link="/charts/charts-enterprise.json" rows="10"/>
+<TrainTable link="/charts/charts-enterprise.json" rows="10"/>
 
 ---
 
 ## Incubator
 
-<IncubatorTable link="/charts/charts-incubator.json" rows="300"/>
+<TrainTable link="/charts/charts-incubator.json" rows="300"/>
 
 ---
 
 ## Dependency
 
-<DependencyTable link="/charts/charts-dependency.json" showTotal="true" rows="10"/>
+<TrainTable link="/charts/charts-dependency.json" showTotal="true" rows="10"/>
 
 > If you notice something wrong in the above info, you are more than welcome to submit a PR, updating Chart.yaml for the app in question
