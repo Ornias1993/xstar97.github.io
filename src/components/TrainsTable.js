@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SkeletonTable from './SkeletonTable';
 
+const column_array = ['Stable', 'Enterprise', 'Incubator', 'Dependency'];
+
 const TrainsTable = () => {
   const [trains, setData] = useState([]);
   const [totalCount, setTotalCount] = useState([]);
@@ -22,7 +24,7 @@ const TrainsTable = () => {
     <>
       {loading ? (
         <>
-          {trains.map(() => (
+          {column_array.map(() => (
             <table style={{ width: '100%' }}>
               <tbody>
                 <tr>
