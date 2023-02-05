@@ -12,10 +12,14 @@ const TrainsTable = () => {
     const fetchData = async () => {
       const result = await fetch('/charts/charts.json');
       const json = await result.json();
-      console.log(`totalCount: ${json.totalCount}\vtrains: ${json.trains}`)
-      setData(json.trains);
-      setTotalCount(json.totalCount);
-      setLoading(json.trains.length > 1 ? false:true);
+      let totalCount = json.totalCount;
+      let trains = json.trains;
+      console.log(`totalCount: ${totalCount}\vtrains: ${trains.length}`)
+      console.log(`trains: ${JSON.stringify(trains, null, 4)}`);
+      
+      setData(trains);
+      setTotalCount(totalCount);
+      setLoading(trains.length > 1 ? false:true);
     };
     fetchData();
   }, []);
