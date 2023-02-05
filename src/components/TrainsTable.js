@@ -53,7 +53,7 @@ const TrainsTable = () => {
               </tbody>
                 <tfoot>
                   <tr>
-                    <td colSpan="3">Charts in this train: <strong>{charts.length}</strong></td>
+                    <td colSpan="3">Charts in this train: <strong>{train.count}</strong></td>
                   </tr>
                 </tfoot>
             </table>
@@ -67,57 +67,3 @@ const TrainsTable = () => {
 };
 
 export default TrainsTable;
-    /*<>
-      {loading ? (
-        <>
-          {column_array.map(() => (
-            <table style={{ width: '100%' }}>
-              <tbody>
-                <tr>
-                  <td style={{ width: '33%', height: '20px' }} />
-                  <td style={{ width: '33%', height: '20px' }} />
-                  <td style={{ width: '33%', height: '20px' }} />
-                </tr>
-              </tbody>
-            </table>
-          ))}
-        </>
-      ) : (
-        <>
-      {trains.map(train => (
-        <>
-          <h2>{train.name}</h2>
-
-          <table>
-            <thead>
-              <tr>
-                <th>App</th>
-                <th>Source</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {train.charts.map(chart => (
-                <tr>
-                  <td>
-                  <img src={chart.icon} alt={chart.name} width="25" height="25"/>&nbsp;
-                  <a href={chart.link}>{chart.name}</a>
-                  </td>
-                    <td>{chart.source}</td>
-                    <td>{chart.description}</td>
-                </tr>
-              ))}
-            </tbody>
-              <tfoot>
-                <tr>
-                  <td colSpan="3">Charts in this train: <strong>{charts.length}</strong></td>
-                </tr>
-              </tfoot>
-          </table>
-          <hr />
-        </>
-      ))}
-      {showTotal && <p>Total charts: <strong>{totalCount}</strong></p>}
-    </>
-      )}
-    </>*/
