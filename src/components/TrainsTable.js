@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SkeletonTable from './SkeletonTable';
 
-const column_array = ['Stable', 'Enterprise', 'Incubator', 'Dependency'];
+const column_array = ['App', 'Source', 'Description'];
 
 const TrainsTable = () => {
   const [trains, setData] = useState([]);
@@ -14,8 +14,6 @@ const TrainsTable = () => {
       const json = await result.json();
       let totalCount = json.totalCount;
       let trains = json.trains;
-      console.log(`totalCount: ${totalCount}\ntrains: ${trains.length}`)
-      console.log(`trains: ${JSON.stringify(trains, null, 4)}`);
       
       setData(trains);
       setTotalCount(totalCount);
@@ -27,35 +25,48 @@ const TrainsTable = () => {
 
   return (
     <>
-      {trains.map(train => (
-        <>
-          <h2>{train.name}</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Link</th>
-                <th>Icon</th>
-                <th>Source</th>
-              </tr>
-            </thead>
-            <tbody>
-              {train.charts.map(chart => (
+      {loading ? (
+        <SkeletonTable columns={column_array} />
+      ) : (
+        trains.map(train => (
+          <>
+            <h2>{train.name}</h2>
+            <table>
+              <thead>
                 <tr>
-                  <td>{chart.name}</td>
-                  <td>{chart.description}</td>
-                  <td>{chart.link}</td>
-                  <td>{chart.icon}</td>
-                  <td>{chart.source}</td>
+                  <th>App</th>
+                  <th>Source</th>
+                  <th>Description</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <hr />
-        </>
-      ))}
+              </thead>
+              <tbody>
+                {train.charts.map(chart => (
+                  <tr>
+                    <td>
+                    <img src={chart.icon} alt={chart.name} width="25" height="25"/>&nbsp;
+                    <a href={chart.link}>{chart.name}</a>
+                    </td>
+                      <td>{chart.source}</td>
+                      <td>{chart.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+                <tfoot>
+                  <tr>
+                    <td colSpan="3">Charts in this train: <strong>{charts.length}</strong></td>
+                  </tr>
+                </tfoot>
+            </table>
+            <hr />
+          </>
+        ))
+      )}
+      {<p>Total charts: <strong>{totalCount}</strong></p>}
     </>
+  );
+};
+
+export default TrainsTable;
     /*<>
       {loading ? (
         <>
@@ -110,7 +121,3 @@ const TrainsTable = () => {
     </>
       )}
     </>*/
-  );
-};
-
-export default TrainsTable;

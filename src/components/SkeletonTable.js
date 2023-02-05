@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const SkeletonTable = ({ columns, rows }) => {
+const SkeletonTable = ({ columns, rows = 100}) => {
     return (
       <table style={{ width: '100%' }}>
         <thead>
