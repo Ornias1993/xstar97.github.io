@@ -14,7 +14,7 @@ const TrainsTable = () => {
       const json = await result.json();
       let totalCount = json.totalCount;
       let trains = json.trains;
-      console.log(`totalCount: ${totalCount}\vtrains: ${trains.length}`)
+      console.log(`totalCount: ${totalCount}\ntrains: ${trains.length}`)
       console.log(`trains: ${JSON.stringify(trains, null, 4)}`);
       
       setData(trains);
@@ -27,6 +27,36 @@ const TrainsTable = () => {
 
   return (
     <>
+      {trains.map(train => (
+        <>
+          <h2>{train.name}</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Link</th>
+                <th>Icon</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              {train.charts.map(chart => (
+                <tr>
+                  <td>{chart.name}</td>
+                  <td>{chart.description}</td>
+                  <td>{chart.link}</td>
+                  <td>{chart.icon}</td>
+                  <td>{chart.source}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <hr />
+        </>
+      ))}
+    </>
+    /*<>
       {loading ? (
         <>
           {column_array.map(() => (
@@ -79,7 +109,7 @@ const TrainsTable = () => {
       {showTotal && <p>Total charts: <strong>{totalCount}</strong></p>}
     </>
       )}
-    </>
+    </>*/
   );
 };
 
