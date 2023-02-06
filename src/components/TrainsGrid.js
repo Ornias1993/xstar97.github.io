@@ -71,7 +71,9 @@ const TrainsGrid = () => {
                 <div className="grid-item" onClick={() => handleOpenDialog(chart)}>
                 <img src={chart.icon} alt={chart.name} width="64" height="64"/>
                 <p style={{ paddingLeft: "10px" }}>{chart.name}</p>
-                {isDialogOpen && selectedChart && (
+              </div>
+              ))}
+            {isDialogOpen && selectedChart && (
                 <div className="dialog">
                 <div className="dialog-header">
                   <h3>{selectedChart.name}</h3>
@@ -83,8 +85,6 @@ const TrainsGrid = () => {
                 </div>
               </div>
               )}
-              </div>
-              ))}
             </div>
           </>
         ))
