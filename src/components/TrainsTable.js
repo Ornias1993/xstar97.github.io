@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SkeletonTable from './SkeletonTable';
+import SearchBar from './SearchBar';
 
 const column_array = ['App', 'Source', 'Description'];
 
@@ -9,8 +10,8 @@ const TrainsTable = () => {
   const [totalCount, setTotalCount] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const handleChange = event => {
-    setSearchTerm(event.target.value);
+  const handleSearch = event => {
+    setSearchTerm(event.target.value.toLowerCase());
   };
 
   useEffect(() => {
@@ -27,11 +28,65 @@ const TrainsTable = () => {
     fetchData();
   }, []);
 
-  const filteredTrains = trains.filter(train =>
-    train.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    train.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCharts = trains
+    .map(train => {
+      return {
+        name: train.name,
+        count: train.count,
+        charts: train.charts.filter(
+          chart =>
+            chart.description.toLowerCase().indexOf(searchTerm) !== -1 ||
+            chart.name.toLowerCase().indexOf(searchTerm) !== -1
+        )
+      };
+    })
+    .filter(train => train.charts.length > 0);
 
+    return (
+      <>
+        <SearchBar handleSearch={handleSearch} />
+        {loading ? (
+          <SkeletonTable columns={column_array} />
+        ) : (
+          filteredCharts.map(train => (
+            <>
+            <h2>{train.name}</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>App</th>
+                  <th>Source</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {train.charts.map(chart => (
+                  <tr>
+                    <td>
+                    <img src={chart.icon} alt={chart.name} width="25" height="25"/>&nbsp;
+                    <a href={chart.link}>{chart.name}</a>
+                    </td>
+                      <td>{chart.source}</td>
+                      <td>{chart.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+                <tfoot>
+                  <tr>
+                    <td colSpan="3">Charts in this train: <strong>{train.count}</strong></td>
+                  </tr>
+                </tfoot>
+            </table>
+            <hr />
+          </>
+          ))
+        )}
+        {<p>Total charts: <strong>{totalCount}</strong></p>}
+      </>
+    );
+  };
+
+    /*
   return (
     <>
       <div className="search-container">
@@ -82,6 +137,6 @@ const TrainsTable = () => {
       {<p>Total charts: <strong>{totalCount}</strong></p>}
     </>
   );
-};
+};*/
 
 export default TrainsTable;
