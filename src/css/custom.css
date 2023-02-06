@@ -39,11 +39,3 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   width: 100%;
   box-sizing: border-box;
 }
-
-.search-icon {
-  background: require('/img/truecharts.png') no-repeat center;
-  width: 40px;
-  height: 40px;
-  border: none;
-  cursor: pointer;
-}

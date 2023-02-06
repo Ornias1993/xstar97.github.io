@@ -15,9 +15,6 @@ const SearchBar = () => {
         value={searchTerm}
         onChange={handleChange}
       />
-      <button className="search-icon">
-        <i className="fa fa-search"></i>
-      </button>
     </div>
   );
 };
