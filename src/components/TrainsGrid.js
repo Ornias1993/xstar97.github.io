@@ -77,7 +77,7 @@ const TrainsGrid = () => {
                 <div className="dialog-background">
                 <div className="card card-dialog">
                   <div className="text-right" style={{ padding: "1rem", display: "flex", justifyContent: "flex-end" }}>
-                    <button className="btn btn-danger" style={{ backgroundColor: "red", padding: "0.5rem 1rem" }} onClick={handleCloseDialog}>
+                    <button className="btn btn-danger" style={{ backgroundColor: "red", padding: "0.5rem 0.5rem", fontSize: "1.5rem", border: "none" }} onClick={handleCloseDialog}>
                       &times;
                     </button>
                   </div>
