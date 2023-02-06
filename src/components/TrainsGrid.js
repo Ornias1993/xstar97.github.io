@@ -47,7 +47,7 @@ const TrainsGrid = () => {
         count: train.count,
         charts: train.charts.filter(
           chart =>
-            chart.description.toLowerCase().indexOf(searchTerm) !== -1 ||
+            //chart.description.toLowerCase().indexOf(searchTerm) !== -1 ||
             chart.name.toLowerCase().indexOf(searchTerm) !== -1
         )
       };
