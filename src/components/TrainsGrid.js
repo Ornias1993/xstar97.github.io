@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SkeletonGrid from './SkeletonGrid';
 import SearchBar from './SearchBar.js';
+import Grid from './Grid.js';
 import "../css/grid.css";
 
 const TrainsGrid = () => {
@@ -50,24 +51,7 @@ const TrainsGrid = () => {
       {loading ? (
         <SkeletonGrid />
       ) : (
-        filteredCharts.map(train => (
-            <>
-            <h2>{train.name}</h2>
-            <div className="grid">
-              {train.charts.map(chart => (
-                <div className="grid-item">
-                  <img src={chart.icon} alt={chart.name} width="50" height="50"/>
-                  <p>{chart.name}</p>
-                  <button onClick={() => {
-                    // show dialog with chart description and source
-                  }}>
-                    Show Description
-                  </button>
-                </div>
-              ))}
-            </div>
-          </>
-        ))
+        <Grid filteredCharts={filteredCharts}/>
       )}
       {<p>Total charts: <strong>{totalCount}</strong></p>}
     </>
