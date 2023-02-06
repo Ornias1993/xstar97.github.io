@@ -43,19 +43,6 @@ const TrainsTable = () => {
     .filter(train => train.charts.length > 0);
 
   return (
-
-    /*
-    
-      <div className="search-container">
-        <i className="fa fa-search"></i>
-        <input
-          type="text"
-          placeholder="Search by App name or description"
-          value={searchTerm}
-          onChange={handleSearch}
-        />
-      </div>
-    */
     <>
       <div className="search-container">
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />

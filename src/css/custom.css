@@ -26,24 +26,3 @@
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
-
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar input {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 8px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.search-icon {
-  background: url(/img/truecharts.png) no-repeat center;
-  width: 40px;
-  height: 40px;
-  border: none;
-  cursor: pointer;
-}
