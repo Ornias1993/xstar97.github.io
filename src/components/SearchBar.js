@@ -1,18 +1,17 @@
-//import "../css/searchbar.css";
 import React, { useState } from "react";
 
-const SearchBar = ({ placeholder, searchTerm, handleSearch }) => {
+const SearchBar = ({ placeHolder,searchTerm, handleSearch }) => {
   return (
-    <div style={{ display: "flex", width: "100%" }}>
-      <span style={{ marginRight: "10px", alignSelf: "center" }}>
-        <i className="fa fa-search" aria-hidden="true" />
-      </span>
+    <div className="search-container">
+      <label htmlFor="search-input">
+        <i className="fa fa-search"></i>
+      </label>
       <input
-        style={{ width: "100%" }}
+        id="search-input"
         type="text"
-        placeholder={placeholder}
+        placeholder={placeHolder}
         value={searchTerm}
-        onChange={(event) => handleSearch(event.target.value)}
+        onChange={handleSearch}
       />
     </div>
   );

@@ -45,7 +45,7 @@ const TrainsTable = () => {
   return (
     <>
       <div className="search-container">
-        <SearchBar placeholder="Search by App name or description" searchTerm={searchTerm} handleSearch={handleSearch} />
+        <SearchBar placeHolder="Search by App name or description" searchTerm={searchTerm} handleSearch={handleSearch} />
       </div>
 
       {loading ? (
