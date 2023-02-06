@@ -10,7 +10,6 @@
   }
   
   .grid-item {
-    height: 150px;  /* set the height of each grid item */
     width: 150px;
     display: flex;
     flex-direction: column;
