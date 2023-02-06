@@ -12,6 +12,7 @@ const SearchBar = ({ placeHolder,searchTerm, handleSearch }) => {
         placeholder={placeHolder}
         value={searchTerm}
         onChange={handleSearch}
+        style={{width: '100%'}}
       />
     </div>
   );
