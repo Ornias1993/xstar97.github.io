@@ -77,11 +77,15 @@ const TrainsGrid = () => {
                 <div className="dialog-background">
                 <div className="card card-dialog">
                 <div className="card-header text-center" style={{ padding: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <h3>{selectedChart.name}</h3>
+                    <h3><a href={selectedChart.link}>{selectedChart.name}</a></h3>
                 </div>
                   <div className="card-body" style={{ padding: "1rem" }}>
                     <p class="description">{selectedChart.description}</p>
-                    <p>Source: {selectedChart.source}</p>
+                    {
+                      selectedChart.source.includes("https://") ? (
+                        <p>Source: <a href={selectedChart.source}></a></p>
+                      ) : (<p>Source: {selectedChart.source}</p>)
+                    }
                   </div>
                   <div className="text-center" style={{ padding: "1rem", display: "flex", justifyContent: "flex-end" }}>
                     <button className="btn btn-primary" onClick={handleCloseDialog}>
