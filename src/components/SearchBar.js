@@ -1,24 +1,16 @@
 import React, { useState } from "react";
 
-const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleChange = event => {
-    setSearchTerm(event.target.value);
-  };
-  
+const SearchBar = ({ searchTerm, handleSearch }) => {
   return (
-    <div className="search-bar">
+    <>
+      <i className="fa fa-search"></i>
       <input
         type="text"
-        placeholder="Search charts..."
+        placeholder="Search by App name or description"
         value={searchTerm}
-        onChange={handleChange}
+        onChange={handleSearch}
       />
-      <button className="search-icon">
-        <i className="fa fa-search"></i>
-      </button>
-    </div>
+    </>
   );
 };
 

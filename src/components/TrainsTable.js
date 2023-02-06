@@ -43,7 +43,9 @@ const TrainsTable = () => {
     .filter(train => train.charts.length > 0);
 
   return (
-    <>
+
+    /*
+    
       <div className="search-container">
         <i className="fa fa-search"></i>
         <input
@@ -53,6 +55,12 @@ const TrainsTable = () => {
           onChange={handleSearch}
         />
       </div>
+    */
+    <>
+      <div className="search-container">
+        <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+      </div>
+
       {loading ? (
         <SkeletonTable columns={column_array} />
       ) : (
