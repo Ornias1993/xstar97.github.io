@@ -76,17 +76,17 @@ const TrainsGrid = () => {
             {isDialogOpen && selectedChart && (
                 <div className="dialog-background">
                 <div className="card card-dialog">
+                  <div className="text-right" style={{ padding: "1rem", display: "flex", justifyContent: "flex-end" }}>
+                    <button className="btn btn-danger" style={{ backgroundColor: "red", padding: "0.5rem 1rem" }} onClick={handleCloseDialog}>
+                      &times;
+                    </button>
+                  </div>
                 <div className="card-header text-center" style={{ padding: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <h3>{selectedChart.name}</h3>
                 </div>
                   <div className="card-body" style={{ padding: "1rem" }}>
                     <p class="description">{selectedChart.description}</p>
                     <p>Source: {selectedChart.source}</p>
-                  </div>
-                  <div className="text-center" style={{ padding: "1rem", display: "flex", justifyContent: "flex-end" }}>
-                    <button className="btn btn-danger" onClick={handleCloseDialog} style={{ padding: "0.5rem 1rem" }}>
-                      &times;
-                    </button>
                   </div>
                 </div>
               </div>
