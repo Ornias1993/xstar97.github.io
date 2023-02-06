@@ -69,8 +69,8 @@ const TrainsGrid = () => {
             <div className="grid">
               {train.charts.map(chart => (
                 <div className="grid-item" onClick={() => handleOpenDialog(chart)}>
-                <img src={chart.icon} alt={chart.name} width="50" height="50"/>
-                <p>{chart.name}</p>
+                <img src={chart.icon} alt={chart.name} width="64" height="64"/>
+                <p style={{ paddingLeft: "10px" }}>{chart.name}</p>
               </div>
               ))}
             </div>
