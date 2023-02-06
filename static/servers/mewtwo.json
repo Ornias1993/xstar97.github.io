@@ -369,7 +369,7 @@
         },
         {
             "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/syncthing.png",
-            "name": "syncthing 🆕",
+            "name": "syncthing",
             "train": "✅",
             "description": "P2P file synchronization application",
             "instances": 1
