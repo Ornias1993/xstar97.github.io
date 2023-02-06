@@ -83,9 +83,9 @@ const TrainsGrid = () => {
                     <p class="description">{selectedChart.description}</p>
                     <p>Source: {selectedChart.source}</p>
                   </div>
-                  <div className="text-center" style={{ padding: "1rem" }}>
-                    <button className="btn btn-primary" onClick={handleCloseDialog}>
-                      Close
+                  <div className="text-center" style={{ padding: "1rem", display: "flex", justifyContent: "flex-end" }}>
+                    <button className="btn btn-danger" onClick={handleCloseDialog} style={{ padding: "0.5rem 1rem" }}>
+                      &times;
                     </button>
                   </div>
                 </div>
