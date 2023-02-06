@@ -24,7 +24,7 @@ const ChartsSearchBar = () => {
       });
     });
     setFilteredTrains(results);
-  }, [searchTerm, trains]);
+  }, [searchTerm, data]);
 
   return (
     <div>
