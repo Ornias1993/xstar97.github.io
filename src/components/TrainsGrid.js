@@ -78,12 +78,12 @@ const TrainsGrid = () => {
                 <div className="dialog">
                   <div className="dialog-header">
                     <h3>{selectedChart.name}</h3>
-                    <button onClick={handleCloseDialog}>Close</button>
                   </div>
                   <div className="dialog-body">
                     <p>{selectedChart.description}</p>
                     <p>Source: {selectedChart.source}</p>
                   </div>
+                  <button onClick={handleCloseDialog}>Close</button>
                 </div>
               </div>
             )}
