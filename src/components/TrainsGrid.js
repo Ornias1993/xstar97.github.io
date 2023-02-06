@@ -77,7 +77,7 @@ const TrainsGrid = () => {
             {isDialogOpen && selectedChart && (
                 <div className="dialog">
                 <div className="dialog-header">
-                  <h3>{selectedChart.title}</h3>
+                  <h3>{selectedChart.name}</h3>
                   <button onClick={handleCloseDialog}>Close</button>
                 </div>
                 <div className="dialog-body">
