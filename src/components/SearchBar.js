@@ -10,7 +10,7 @@ const SearchBar = ({ placeHolder,searchTerm, handleSearch }) => {
     placeholder={placeHolder}
     value={searchTerm}
     onChange={handleSearch}
-    style={{flexGrow: 1}}
+    style={{flexGrow: 1, height: '18px'}}
   />
 </div>
   );
