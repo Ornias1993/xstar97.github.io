@@ -1,13 +1,12 @@
 .grid {
     display: flex;
     flex-wrap: wrap;
-    height: 300px;  /* set a fixed height for the grid container */
     overflow-y: scroll;
   }
   
   .grid-item {
-    height: 100px;  /* set the height of each grid item */
-    width: 200px;
+    height: 150px;  /* set the height of each grid item */
+    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
