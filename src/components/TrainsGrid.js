@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SkeletonGrid from './SkeletonGrid';
 import SearchBar from './SearchBar.js';
-import Grid from './Grid.js';
 import "../css/grid.css";
 
 const TrainsGrid = () => {
@@ -9,6 +8,19 @@ const TrainsGrid = () => {
   const [trains, setData] = useState([]);
   const [totalCount, setTotalCount] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [selectedChart, setSelectedChart] = useState(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleCloseDialog = () => {
+    setSelectedChart(null);
+    setIsDialogOpen(false);
+  };
+
+  const handleOpenDialog = chart => {
+    setSelectedChart(chart);
+    setIsDialogOpen(true);
+  };
 
   const handleSearch = event => {
     setSearchTerm(event.target.value.toLowerCase());
@@ -51,7 +63,34 @@ const TrainsGrid = () => {
       {loading ? (
         <SkeletonGrid />
       ) : (
-        <Grid filteredCharts={filteredCharts}/>
+        filteredCharts.map(train => (
+            <>
+            <h2>{train.name}</h2>
+            <div className="grid">
+              {train.charts.map(chart => (
+                <div className="grid-item">
+                  <img src={chart.icon} alt={chart.name} width="50" height="50"/>
+                  <p>{chart.name}</p>
+                  <button onClick={() => {handleOpenDialog(chart)}}>
+                    Show Description
+                  </button>
+                </div>
+              ))}
+            </div>
+            {isDialogOpen && selectedChart && (
+        <div className="dialog">
+          <div className="dialog-header">
+            <h3>{selectedChart.title}</h3>
+            <button onClick={handleCloseDialog}>Close</button>
+          </div>
+          <div className="dialog-body">
+            <p>{selectedChart.description}</p>
+            <p>Source: {selectedChart.source}</p>
+          </div>
+        </div>
+      )}
+          </>
+        ))
       )}
       {<p>Total charts: <strong>{totalCount}</strong></p>}
     </>
