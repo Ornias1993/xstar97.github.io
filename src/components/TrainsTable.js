@@ -4,10 +4,14 @@ import SkeletonTable from './SkeletonTable';
 const column_array = ['App', 'Source', 'Description'];
 
 const TrainsTable = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   const [trains, setData] = useState([]);
   const [totalCount, setTotalCount] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,21 +27,26 @@ const TrainsTable = () => {
     fetchData();
   }, []);
 
-  const handleSearch = event => {
-    setSearchTerm(event.target.value);
-  };
-
-  const filteredData = trains
-    .map(train => ({...train, charts: train.charts.filter(chart => chart.name.toLowerCase().includes(searchTerm.toLowerCase()))}))
-    .filter(train => train.charts.length > 0);
+  const filteredTrains = trains.filter(train =>
+    train.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    train.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
-      <input type="text" placeholder="Search charts" value={searchTerm} onChange={handleSearch} />
+      <div className="search-container">
+        <i className="fa fa-search"></i>
+        <input
+          type="text"
+          placeholder="Search by App name or description"
+          value={searchTerm}
+          onChange={handleChange}
+        />
+      </div>
       {loading ? (
         <SkeletonTable columns={column_array} />
       ) : (
-        filteredData.map(train => (
+        filteredTrains.map(train => (
           <>
             <h2>{train.name}</h2>
             <table>
