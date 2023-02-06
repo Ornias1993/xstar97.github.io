@@ -83,7 +83,7 @@ const TrainsGrid = () => {
                     <p class="description">{selectedChart.description}</p>
                     {
                       selectedChart.source.includes("https://") ? (
-                        <p>Source: <a href={selectedChart.source}></a></p>
+                        <p>Source: <a href={selectedChart.source}>upstream image</a></p>
                       ) : (<p>Source: {selectedChart.source}</p>)
                     }
                   </div>
