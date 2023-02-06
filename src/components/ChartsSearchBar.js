@@ -15,6 +15,7 @@ const ChartsSearchBar = () => {
   }, []);
 
   useEffect(() => {
+    if (!data.trains) return;
     const results = data.trains.filter(train => {
       return train.charts.some(chart => {
         return (
@@ -24,7 +25,7 @@ const ChartsSearchBar = () => {
       });
     });
     setFilteredTrains(results);
-  }, [searchTerm, data]);
+  }, [searchTerm, trains]);
 
   return (
     <div>
