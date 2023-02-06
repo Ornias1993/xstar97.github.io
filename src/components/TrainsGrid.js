@@ -80,7 +80,7 @@ const TrainsGrid = () => {
                     <h3>{selectedChart.name}</h3>
                   </div>
                   <div className="dialog-body">
-                  <p style="word-wrap: break-word; max-width: 100ch;">{selectedChart.description}</p>
+                    <p>{selectedChart.description}</p>
                     <p>Source: {selectedChart.source}</p>
                   </div>
                   <button onClick={handleCloseDialog}>Close</button>
