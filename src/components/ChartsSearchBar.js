@@ -2,20 +2,20 @@ import React, { useState, useEffect } from "react";
 
 const ChartsSearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [trains, setTrains] = useState([]);
+  const [data, setData] = useState([]);
   const [filteredTrains, setFilteredTrains] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const res = await fetch('/charts/charts.json');
       const json = await res.json();
-      setTrains(json);
+      setData(json);
     }
     fetchData();
   }, []);
 
   useEffect(() => {
-    const results = trains.filter(train => {
+    const results = data.trains.filter(train => {
       return train.charts.some(chart => {
         return (
           chart.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
