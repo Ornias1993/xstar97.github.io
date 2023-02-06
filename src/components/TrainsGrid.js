@@ -75,16 +75,16 @@ const TrainsGrid = () => {
               ))}
             </div>
             {isDialogOpen && selectedChart && (
-        <div className="dialog">
-          <div className="dialog-header">
-            <h3>{selectedChart.title}</h3>
-            <button onClick={handleCloseDialog}>Close</button>
-          </div>
-          <div className="dialog-body">
-            <p>{selectedChart.description}</p>
-            <p>Source: {selectedChart.source}</p>
-          </div>
-        </div>
+                <div className="dialog">
+                <div className="dialog-header">
+                  <h3>{selectedChart.title}</h3>
+                  <button onClick={handleCloseDialog}>Close</button>
+                </div>
+                <div className="dialog-body">
+                  <p>{selectedChart.description}</p>
+                  <p>Source: {selectedChart.source}</p>
+                </div>
+              </div>
       )}
           </>
         ))
