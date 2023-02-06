@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SkeletonGrid from './SkeletonGrid';
 import SearchBar from './SearchBar.js';
+import "/css/grid.css";
 
 const TrainsGrid = () => {
   const [searchTerm, setSearchTerm] = useState("");
