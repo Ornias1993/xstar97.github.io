@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SkeletonTable from './SkeletonTable';
-import SearchBar from './SearchBar';
+import SearchBar from './SearchBar.js';
 
 const column_array = ['App', 'Source', 'Description'];
 
