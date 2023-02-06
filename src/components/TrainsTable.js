@@ -7,6 +7,7 @@ const TrainsTable = () => {
   const [trains, setData] = useState([]);
   const [totalCount, setTotalCount] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,13 +23,21 @@ const TrainsTable = () => {
     fetchData();
   }, []);
 
+  const handleSearch = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredData = trains
+    .map(train => ({...train, charts: train.charts.filter(chart => chart.name.toLowerCase().includes(searchTerm.toLowerCase()))}))
+    .filter(train => train.charts.length > 0);
 
   return (
     <>
+      <input type="text" placeholder="Search charts" value={searchTerm} onChange={handleSearch} />
       {loading ? (
         <SkeletonTable columns={column_array} />
       ) : (
-        trains.map(train => (
+        filteredData.map(train => (
           <>
             <h2>{train.name}</h2>
             <table>
