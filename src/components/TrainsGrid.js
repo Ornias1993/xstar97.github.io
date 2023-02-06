@@ -76,9 +76,9 @@ const TrainsGrid = () => {
             {isDialogOpen && selectedChart && (
                 <div className="dialog-background">
                 <div className="card card-dialog">
-                  <div className="card-header text-center" style={{ padding: "1rem" }}>
+                <div className="card-header text-center" style={{ padding: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <h3>{selectedChart.name}</h3>
-                  </div>
+                </div>
                   <div className="card-body" style={{ padding: "1rem" }}>
                     <p class="description">{selectedChart.description}</p>
                     <p>Source: {selectedChart.source}</p>
