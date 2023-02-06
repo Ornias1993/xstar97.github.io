@@ -68,13 +68,10 @@ const TrainsGrid = () => {
             <h2>{train.name}</h2>
             <div className="grid">
               {train.charts.map(chart => (
-                <div className="grid-item">
-                  <img src={chart.icon} alt={chart.name} width="50" height="50"/>
-                  <p>{chart.name}</p>
-                  <button onClick={() => {handleOpenDialog(chart)}}>
-                    Show Description
-                  </button>
-                </div>
+                <div className="grid-item" onClick={() => handleOpenDialog(chart)}>
+                <img src={chart.icon} alt={chart.name} width="50" height="50"/>
+                <p>{chart.name}</p>
+              </div>
               ))}
             </div>
             {isDialogOpen && selectedChart && (
