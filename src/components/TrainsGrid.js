@@ -57,7 +57,7 @@ const TrainsGrid = () => {
   return (
     <>
       <div className="search-container">
-        <SearchBar placeHolder="Search by App name or description" searchTerm={searchTerm} handleSearch={handleSearch} />
+        <SearchBar placeHolder="Search by App name" searchTerm={searchTerm} handleSearch={handleSearch} />
       </div>
 
       {loading ? (
