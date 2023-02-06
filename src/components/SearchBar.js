@@ -2,22 +2,10 @@ import React, { useState } from "react";
 
 const SearchBar = ({ placeHolder,searchTerm, handleSearch }) => {
   return (
-    <div style={{
-      borderRadius: '0.5em',
-      backgroundColor: '#f9f9f9',
-      boxShadow: '0px 0px 10px 0px #c8c8c8',
-      padding: '1em',
-      display: 'inline-block'
-    }}>
-      <input
-        id="search-input"
-        type="text"
-        placeholder={placeHolder}
-        value={searchTerm}
-        onChange={handleSearch}
-        style={{width: '100%', height: '18px'}}
-      />
-    </div>
+    <div style={{display: 'flex', alignItems: 'center'}}>
+      <img src="/img/truecharts.png" style={{marginRight: '0.5em'}} width="24" height="24"/>
+      <input id="search-input" type="text" placeholder={placeHolder} value={searchTerm} onChange={handleSearch} style={{flexGrow: 1}} />
+</div>
   );
 };
 
