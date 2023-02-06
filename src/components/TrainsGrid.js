@@ -50,20 +50,21 @@ const TrainsGrid = () => {
         <SkeletonGrid />
       ) : (
         filteredCharts.map(train => (
-          <>
+            <>
             <h2>{train.name}</h2>
-            <div className="grid-container">
+            <div className="grid">
               {train.charts.map(chart => (
                 <div className="grid-item">
-                  <img src={chart.icon} alt={chart.name} width="25" height="25"/>&nbsp;
-                  <a href={chart.link}>{chart.name}</a>
-                  <p>{chart.source}</p>
-                  <p>{chart.description}</p>
+                  <img src={chart.icon} alt={chart.name} width="50" height="50"/>
+                  <p>{chart.name}</p>
+                  <button onClick={() => {
+                    // show dialog with chart description and source
+                  }}>
+                    Show Description
+                  </button>
                 </div>
               ))}
             </div>
-            <p>Charts in this train: <strong>{train.count}</strong></p>
-            <hr />
           </>
         ))
       )}
