@@ -41,7 +41,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .search-icon {
-  background: url(search-icon.png) no-repeat center;
+  background: require('/img/truecharts.png') no-repeat center;
   width: 40px;
   height: 40px;
   border: none;
